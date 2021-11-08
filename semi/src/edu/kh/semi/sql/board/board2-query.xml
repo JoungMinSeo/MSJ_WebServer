@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<entry key="selectCategoryList">
+		SELECT * FROM CATEGORY
+	</entry>
+
+	<!-- 다음 게시글 번호 조회 -->
+	<entry key="nextBoardNo">
+		SELECT SEQ_BNO.NEXTVAL FROM DUAL
+	</entry>
+
+	<!-- 게시글 삽입 -->
+	<entry key="insertBoard">
+		INSERT INTO BOARD
+		VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, DEFAULT, ?, ?, ?)
+	</entry>
+
+	<!-- 첨부 파일 삽입 -->
+	<entry key="insertAttachment">
+		INSERT INTO ATTACHMENT
+		VALUES(SEQ_FNO.NEXTVAL, ?, ?, ?, ?)
+	</entry>
+
+	<!-- 게시글 수정 -->
+	<entry key="updateBoard">
+		UPDATE BOARD SET
+			BOARD_TITLE = ?,
+			BOARD_CONTENT =?,
+			CATEGORY_CD = ?,
+			MODIFY_DT = SYSTIMESTAMP
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	
+	<!-- 첨부 파일 수정 -->
+	<entry key="updateAttachment">
+		UPDATE ATTACHMENT SET
+		FILE_NM = ?
+		WHERE BOARD_NO = ?
+		AND FILE_LEVEL = ?
+	</entry>
+	
+	
+
+
+
+
+
+
+
+
+
+</properties>
